@@ -1,0 +1,24 @@
+.sidebar {
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.imglogo {
+    height: 100vh;
+    display: flex;
+    transform: translate(-25%, 0);
+  }
+  @media screen and (min-width: 40%) {
+    .sidebar img {
+      max-width: 100%; /* Зображення не буде збільшуватися більше за його власні розміри */
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .sidebar {
+      display: none; /* Приховуємо сайдбар на мобільних пристроях */
+    }
+  }
+  

@@ -1,0 +1,71 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+    
+  background-color: rgba(159, 28, 32, 1);
+  color: white;
+  font-family: "Montserrat";
+  font-weight: 450;
+  font-size: 12px;
+  
+  flex-grow: 1;
+}
+.grid-item{
+  display: flex;
+  align-items: center;
+  text-align: start;
+  min-height: 35px;
+  padding: 0px 20px;
+}
+.grid-item:nth-child(even) {
+  background-color: rgb(161, 40, 44);
+}
+
+/* Устанавливаем цвет для нечетных строк */
+.grid-item:nth-child(odd) {
+  background-color: rgba(159, 28, 32, 1);
+}
+
+.avatar{
+  width: 288.75px;
+  height: 385px;
+}
+.ava {
+    box-sizing: border-box;
+border: 2px solid rgb(159, 28, 32);
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+max-width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
+  max-height: 100%;
+  display: block; /* Убедитесь, что изображение является блочным элементом */
+  height: 100vh;
+  object-fit: cover;
+}
+
+.content {
+  display: flex;
+  margin: 0px 50px;
+  gap: 50px;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+a {
+  color: inherit; /* наследует цвет текста от родительского элемента */
+  text-decoration: none; /* убирает подчеркивание */
+  cursor: pointer;
+}
+.changeAva{
+  background-color: rgb(159, 28, 32);
+  width: 288.75px;
+  height: 54px;
+  margin: 18px 0px;
+  color: white;
+  font-family: "Montserrat";
+  font-weight: 450;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
