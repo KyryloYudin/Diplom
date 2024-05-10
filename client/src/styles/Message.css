@@ -1,7 +1,6 @@
 .chat {
     margin: 0px 50px;
     height: 685px;
-    display: flex;
 
     background-color: rgba(159, 28, 32, 1);
     color: white;
@@ -9,6 +8,10 @@
     font-weight: 450;
     font-size: 10px;
     gap: 0px;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 100%;
 }
 
 .last_message {
@@ -16,7 +19,13 @@
     border-right: 1px solid rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     width: 440px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
+
 .left_message{
     display: flex;
     align-items: center;
@@ -51,14 +60,74 @@
     border-radius: 10px;
     margin: 15px 25px;
     padding: 6.5px 10px;
-    color: rgba(209, 209, 209, 0.5);
-}
 
+}
+#chat_now{
+    display: flex;
+    justify-content: center;
+}
 .chat_now {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.message_input{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    font-family: "Montserrat";
+    font-weight: 450;
+    font-size: 10px;
+
+
+}
+.message_input::placeholder{
+    color: rgba(209, 209, 209, 0.5);
+    font-family: "Montserrat";
+    font-weight: 450;
+    font-size: 10px;
+}
+.message_board{
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+
+    background-color: rgba(159, 28, 32, 1);
+    height: 40px;
+    
+}
+.MiddleHeader{
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.1);
-    flex-grow: 1;
-    
+    width: 100%;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    height: 3.5rem;
+}
+.Transition{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.MessageList{
+    flex: 1;
+    width: 100%;
+    margin-bottom: .5rem;
+}
+.textcontent{
+    margin:0;
+    word-break: break-word;
+    text-align: initial;
+    display: block;
+    position: relative;
+}
+.MessageTitle{
+    display: flex;
+    font-weight: 550;
+}
+.MessageElement{
+    background: rgba(159, 28, 32, 1);;
+    padding: .3125rem .5rem .375rem;
+    border-radius: 10px;
 }

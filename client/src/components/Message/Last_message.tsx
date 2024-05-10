@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface LastMessageProps {
   userName: string;
@@ -7,6 +7,8 @@ interface LastMessageProps {
 }
 
 const Last_message: React.FC<LastMessageProps> = (props) => {
+
+
     return (
       <div>
         <div className='left_message'>

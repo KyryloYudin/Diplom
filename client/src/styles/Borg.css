@@ -1,0 +1,27 @@
+#discipline{
+    display: flex;
+    justify-content: flex-start;
+    flex: 1;
+}
+#teacher{
+    max-width: 230px;
+    min-width: 100px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    justify-content: flex-start;
+}
+#contact{
+    max-width: 100px;
+    min-width: 50px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+#ez{
+    max-width: 100px;
+    flex: 1;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+}
