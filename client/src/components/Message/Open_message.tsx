@@ -37,12 +37,23 @@ const Open_message: React.FC = () => {
         <div className='MessageContainer'>
           <div id='message1' className='MessageElement'>
             <div className='MessageTitle'>
-            Барак Обама
+            <span className='MessageTitleName'>Барак Обама</span>
             </div>
             <div className='textcontent'>
             Я відправлю сюди код від ядерки, добре?
+            <span className='MessageMeta'>14:20</span>
             </div>
-
+          </div>
+        </div>
+        <div className='MessageContainer'>
+          <div id='message1' className='MessageElement'>
+            <div className='MessageTitle'>
+            <span className='MessageTitleName'>Барак Обама</span>
+            </div>
+            <div className='textcontent'>
+            Я відправлю сюди код від ядерки, добре?
+            <span className='MessageMeta'>14:20</span>
+            </div>
           </div>
         </div>
       </div>

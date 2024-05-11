@@ -126,8 +126,30 @@
     display: flex;
     font-weight: 550;
 }
+.MessageTitleName{
+    display: flex;
+    align-items: center;
+}
 .MessageElement{
     background: rgba(159, 28, 32, 1);;
     padding: .3125rem .5rem .375rem;
     border-radius: 10px;
+}
+.MessageMeta{
+    position: relative;
+    top: .375rem;
+    bottom: auto !important;
+    float: right;
+    line-height: 1.35;
+    height: calc(var(--message-meta-height, 1rem));
+    margin-left: .4375rem;
+    margin-right: .375rem;
+}
+.MessageContainer{
+    position: relative;
+    max-width: 29rem;
+    display: flex;
+    width: calc(100% - var(--right-column-width));
+    margin: 0 auto;
+    justify-content: flex-start;
 }

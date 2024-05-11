@@ -1,0 +1,86 @@
+.date{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+.arrowright{
+    padding-right: 20px;
+}
+.MainCalendar{
+    display: grid;
+    grid-template-columns: 60px repeat(6, 3fr);
+    grid-template-rows: 60px repeat(6, 2fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: rgba(159, 28, 32, 1);
+    height: 720px;
+    margin: 0px 50px;
+    color: white;
+    font-family: "Montserrat";
+    font-weight: 450;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+.week {
+    display: grid;
+    grid-area: 1 / 2 / 2 / 8; 
+    grid-template-columns: repeat(6, 3fr);
+    grid-template-rows: 60px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    
+}
+.day{
+    display: flex;
+    align-items: center;
+    padding: 5px 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.number{
+    font-size: 1.4rem;
+}
+.dayofweek{
+    font-size: 0.6rem;
+}
+.time { 
+    grid-area: 2 / 1 / 8 / 2; 
+    display: grid;
+    grid-template-columns: 60px;
+    grid-template-rows: repeat(6, 2fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.timeinterval{
+    display: flex;
+    font-size: 0.6rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.chart { 
+    grid-area: 2 / 2 / 8 / 8;
+    display: grid;
+    grid-template-columns: repeat(6, 3fr);
+    grid-template-rows: repeat(6, 2fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+}
+.lesson{
+    font-size: 0.7rem;
+    padding: 0.4rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+#namelesson{
+    font-weight: 550;
+}
+#placelesson{
+    margin-top: 0.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+#nameteacher{
+    margin-top: 0.5rem;
+    font-weight: 400;
+}

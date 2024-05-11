@@ -46,3 +46,13 @@ body {
   margin: 0;
   background-color: rgba(209, 209, 209, 1);
 }
+@media (min-width: 1276px) and (max-width: 1920px) {
+  :root {
+      --right-column-width: 25vw;
+  }
+}
+@media (min-width: 1276px) {
+  .MessageList .messages-container {
+      width: calc(100% - var(--right-column-width));
+  }
+}
