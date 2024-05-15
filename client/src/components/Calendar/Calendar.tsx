@@ -68,16 +68,16 @@ const Calendar: React.FC = () => {
             <Chart namelesson={''} placelesson={''} nameteacher={''}/>
             <Chart namelesson={''} placelesson={''} nameteacher={''}/>
             <Chart namelesson={''} placelesson={''} nameteacher={''}/>
-            <Chart namelesson={'Нейронні мережі і машиине навчання'} placelesson={'Microsoft Teams Meeting'} nameteacher={'Юлія Андріївна Вязовиченко'}/>
+            <Chart namelesson={'Нейронні мережі і машине навчання'} placelesson={'Microsoft Teams Meeting'} nameteacher={'Юлія Андріївна Вязовиченко'}/>
             <Chart namelesson={''} placelesson={''} nameteacher={''}/>
-            <Chart namelesson={'Нейронні мережі і машиине навчання'} placelesson={'Microsoft Teams Meeting'} nameteacher={'Юлія Андріївна Вязовиченко'}/>
+            <Chart namelesson={'Нейронні мережі і машине навчання'} placelesson={'Microsoft Teams Meeting'} nameteacher={'Юлія Андріївна Вязовиченко'}/>
             
             <Chart namelesson={''} placelesson={''} nameteacher={''}/>
             <Chart namelesson={''} placelesson={''} nameteacher={''}/>
             <Chart namelesson={''} placelesson={''} nameteacher={''}/>
-            <Chart namelesson={'Нейронні мережі і машиине навчання'} placelesson={'Microsoft Teams Meeting'} nameteacher={'Юлія Андріївна Вязовиченко'}/>
+            <Chart namelesson={'Нейронні мережі і машине навчання'} placelesson={'Microsoft Teams Meeting'} nameteacher={'Юлія Андріївна Вязовиченко'}/>
             <Chart namelesson={''} placelesson={''} nameteacher={''}/>
-            <Chart namelesson={'Нейронні мережі і машиине навчання'} placelesson={'Microsoft Teams Meeting'} nameteacher={'Юлія Андріївна Вязовиченко'}/>
+            <Chart namelesson={'Нейронні мережі і машине навчання'} placelesson={'Microsoft Teams Meeting'} nameteacher={'Юлія Андріївна Вязовиченко'}/>
             
             <Chart namelesson={''} placelesson={''} nameteacher={''}/>
             <Chart namelesson={''} placelesson={''} nameteacher={''}/>

@@ -65,6 +65,9 @@
 #chat_now{
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 .chat_now {
     background-color: rgba(0, 0, 0, 0.1);
@@ -78,7 +81,7 @@
     font-family: "Montserrat";
     font-weight: 450;
     font-size: 10px;
-
+    width: 100%;
 
 }
 .message_input::placeholder{
@@ -96,6 +99,10 @@
     height: 40px;
     
 }
+.RightMessage{
+    height: 100%;
+    width: 100%;
+}
 .MiddleHeader{
     display: flex;
     align-items: center;
@@ -103,17 +110,28 @@
     padding-top: .25rem;
     padding-bottom: .25rem;
     height: 3.5rem;
+    background-color: rgba(159, 28, 32, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .Transition{
     width: 100%;
     height: 100%;
     overflow: hidden;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 .MessageList{
     flex: 1;
     width: 100%;
     margin-bottom: .5rem;
+    /* overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    transition: scrollbar-color .3s ease;
+    -webkit-overflow-scrolling: touch;
+    pointer-events: auto; */
+    overflow-x: hidden;
 }
 .textcontent{
     margin:0;
@@ -131,7 +149,7 @@
     align-items: center;
 }
 .MessageElement{
-    background: rgba(159, 28, 32, 1);;
+    background: rgba(159, 28, 32, 1);
     padding: .3125rem .5rem .375rem;
     border-radius: 10px;
 }
@@ -151,5 +169,41 @@
     display: flex;
     width: calc(100% - var(--right-column-width));
     margin: 0 auto;
+    
+    padding:5px;
+}
+#getmessage{
     justify-content: flex-start;
+}
+#sendmessage{
+    justify-content: flex-end;
+}
+.MessageFooter{
+    padding-bottom: 0;
+    background: rgba(159, 28, 32, 1);
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+}
+.Composer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.Wrapper{
+    flex-grow: 1;
+    max-width: calc(100% - 4rem);
+    background: var(--color-background);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 1px 2px var(--color-default-shadow);
+    border-radius: var(--border-radius-messages);
+    border-bottom-right-radius: 0;
+}
+.MessageInput{
+    position: relative;
+    flex-grow: 1;
+    height: 56px;
+    align-items: center;
+    display: flex;
 }
