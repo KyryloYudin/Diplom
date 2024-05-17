@@ -43,14 +43,12 @@ function broadcastMessage(message) {
     });
 }
 
-const start = async () => {
+async function start() {
     try {
-        await mongoose.connect(process.env.DB_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect(process.env.DB_URL);
+        console.log('Connected to MongoDB Atlas')
     } catch (e) {
-        console.log(e);
+        console.log('Error conecting to MongoDB Atlas',e);
     }
 };
 start();

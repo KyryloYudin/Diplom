@@ -49,6 +49,7 @@ body {
 @media (min-width: 1276px) and (max-width: 1920px) {
   :root {
       --right-column-width: 25vw;
+      --max-width: 20rem;
   }
 }
 @media (min-width: 1276px) {
