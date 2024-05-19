@@ -26,12 +26,152 @@ const Message: React.FC = () => {
       </div>
 
       <div className='chat'>
-        <div className='last_message'>
-          <div className='search_message'>
-            <input className='message_input' placeholder='Пошук' />
+        <div className='LeftColumb'>
+          <div className='LeftColumbMain'>
+            <div className='LeftMainHeader'>
+              <div className='left-header'>
+                <div className='SearchInput'>
+                <input className='message_input' placeholder='Пошук' />
+                </div>
+              </div>
+            </div>
+            <div className='LeftMain'>
+              <div className='ChatFolders'>
+                <div className='TransitionLeft'>
+                  <div className='Transition_slide'>
+                    <div className='chat-list custom-scroll'>
+                      <div>
+                        <div className='ListItem'>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                          <div onClick={handleChatClick}>
+                            <LastMessage
+                              userName='Барак Обама'
+                              time='13:20'
+                              message='Я відправлю сюди код від ядерки, добре?'
+                            />
+                          </div>
+                        
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+
+            {/* <input className='message_input' placeholder='Пошук' /> */}
           </div>
 
-          <div onClick={handleChatClick}>
+          {/* <div onClick={handleChatClick}>
             <LastMessage
               userName='Барак Обама'
               time='13:20'
@@ -44,7 +184,7 @@ const Message: React.FC = () => {
               time='13:20'
               message='Я відправлю сюди код від ядерки, добре?'
             />
-          </div>
+          </div> */}
         </div>
 
         <div className='chat_now'>

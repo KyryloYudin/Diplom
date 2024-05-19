@@ -5,9 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --scrollbar-width: 11px;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root{
+  --color-scrollbar: rgba(90, 90, 90, 0.3);
+    --color-scrollbar-code: rgba(200, 200, 200, 0.3);
 }

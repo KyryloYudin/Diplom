@@ -14,7 +14,80 @@
     grid-template-rows: 100%;
 }
 
-.last_message {
+.LeftColumb{
+    --left-column-min-width: 16rem;
+    --left-column-max-width: 26.5rem;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    min-width: var(--left-column-min-width);
+    max-width: var(--left-column-max-width);
+}
+.LeftColumbMain{
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+.left-header{
+    position: relative;
+    --header-height: 2rem;
+    height: var(--header-height);
+    padding: .9rem .8125rem .5rem .8125rem;
+    display: flex;
+    align-items: center;
+}
+.SearchInput{
+    position: relative;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 6.5px 10px;
+}
+
+.LeftMain{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.ChatFolders{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.TransitionLeft{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.Transition_slide{
+    width: 100%;
+    height: 100%;
+    animation-fill-mode: forwards !important;
+}
+
+.chat-list{
+    height: 100%;
+    padding: .5rem .4375rem .5rem .4375rem;
+    padding-inline-end: calc(.4375rem - 10px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.ListItem{
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    -webkit-touch-callout: none;
+}
+
+/* .last_message {
     background-color: rgba(159, 28, 32, 1);
     border-right: 1px solid rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
@@ -24,7 +97,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-}
+} */
 
 .left_message{
     display: flex;
@@ -73,24 +146,6 @@
     background-color: rgba(0, 0, 0, 0.1);
     overflow: hidden;
     position: relative;
-}
-.message_input{
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: rgb(255, 255, 255);
-    font-family: "Montserrat";
-    font-weight: 450;
-    font-size: 10px;
-    width: 100%;
-
-}
-.message_input::placeholder{
-    color: rgba(209, 209, 209, 0.5);
-    font-family: "Montserrat";
-    font-weight: 450;
-    font-size: 10px;
 }
 .message_board{
     display: flex;
@@ -191,7 +246,8 @@
     padding-bottom: 0;
     background: rgba(159, 28, 32, 1);
     border-top: 1px solid rgba(0, 0, 0, 0.2);
-
+    display: flex;
+    align-items: center;
 }
 .Composer{
     width: 100%;
@@ -199,6 +255,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+
 }
 .Wrapper{
     flex-grow: 1;
@@ -212,16 +269,80 @@
 }
 .MessageInput{
     position: relative;
-    flex-grow: 1;
     align-items: center;
     display: flex;
 }
 #MessageInputText{
+    flex-grow: 1;
+}
+
+.custom-scroll{
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    transition: scrollbar-color .3s ease;
+    -webkit-overflow-scrolling: touch;
+    pointer-events: auto;
+
+}
+.input-scroller{
+    max-height: 26rem;
+}
+.input-scroller>.input-scroller-content {
+    position: relative;
+}
+.input-scroller.overflown{
+    overflow-y: auto;
+}
+
+.custom-scroll:hover {
+    scrollbar-color: rgba(255, 255, 255, 0.7) rgba(159, 28, 32, 1);
+}
+  
+
+
+.message_input{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    font-family: "Montserrat";
+    font-weight: 450;
+    font-size: 10px;
     width: 100%;
-    
+    min-width: 0;
+}
+.message_input::placeholder{
+    color: rgba(209, 209, 209, 0.5);
+    font-family: "Montserrat";
+    font-weight: 450;
+    font-size: 10px;
 }
 .form-control {
     outline: none;
     word-break: break-word;
     line-height: 1.25rem;
+}
+
+#editable-message-text{
+    width: 100%;
+    min-height: 20px;
+    outline: none;
+    border: none;
+}
+
+.placeholder-text{
+    position: absolute;
+    color: #999;
+    pointer-events: none;
+    top: 20%;
+}
+
+#FileAdd{
+    height: 40px;
+    width: 40px;
+}
+#Send{
+    height: 40px;
+    width: 40px;
 }
