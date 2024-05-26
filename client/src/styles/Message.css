@@ -1,6 +1,6 @@
 .chat {
     margin: 0px 50px;
-    height: 685px;
+    height: 40rem;
 
     background-color: rgba(159, 28, 32, 1);
     color: white;
@@ -51,6 +51,8 @@
     position: relative;
     width: 100%;
     height: 100%;
+    flex: 1;
+  overflow: auto;
 }
 
 .ChatFolders{
@@ -74,7 +76,6 @@
 
 .chat-list{
     height: 100%;
-    padding: .5rem .4375rem .5rem .4375rem;
     padding-inline-end: calc(.4375rem - 10px);
     overflow-x: hidden;
     overflow-y: scroll;
