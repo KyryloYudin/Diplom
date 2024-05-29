@@ -23,6 +23,10 @@ const server = app.listen(PORT, () => {
     console.log(`Server started on PORT = ${PORT}`);
 });
 
+const profileRouter = require('./router/profile-router')
+app.use('/api/profiles', profileRouter);
+
+
 const wss = new WebSocket.Server({ server });
 
 wss.on('connection', function connection(ws) {
