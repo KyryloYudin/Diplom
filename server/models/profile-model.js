@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const ProfileSchema = new Schema({
+    user: {type: Schema.Types.ObjectId, ref: 'User', require: true },
     email: { type: String},
     avatar: { type: String},
     userName: { type: String},
