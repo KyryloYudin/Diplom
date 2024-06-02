@@ -12,8 +12,6 @@ import './styles/Header.css';
 import './styles/Main.css';
 import './styles/GridContainer.css';
 import './styles/Message.css';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
 import Navogator from './components/Navigator/Navigator';
 
 
@@ -57,7 +55,6 @@ const App: FC = () => {
       <div>
         <Sidebar />
         <LoginForm />
-        {/* <button onClick={getUsers}>Get all users</button> */}
       </div>
     );
   }
@@ -68,6 +65,7 @@ const App: FC = () => {
       {/* <h1>{store.isAuth ? `User auth ${store.user.email}` : 'Auth pls!'}</h1>
       <h2>{store.user.isActivated ? 'Acc activation in mail' : 'Activate acc!'}</h2> */}
       <button onClick={() => store.logout()}>Exit</button>
+      <button onClick={getUsers}>Get all users</button>
       {/* <div>
         <button onClick={getUsers}>Get all users</button>
       </div> */}

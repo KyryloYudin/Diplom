@@ -6,24 +6,29 @@ import { AuthResponse } from "../models/response/AuthResponse";
 import { API_URL } from "../http";
 
 export default class Store {
-    user={} as IUser;
+    user = {} as IUser;
     isAuth = false;
     isLoading = false;
 
-    constructor(){
+    constructor() {
         makeAutoObservable(this);
     }
 
-    setAuth(bool: boolean){
+    setAuth(bool: boolean) {
         this.isAuth = bool;
     }
-    
-    setUser(user: IUser){
+
+    setUser(user: IUser) {
         this.user = user;
     }
 
     setLoading(bool: boolean) {
         this.isLoading = bool;
+    }
+
+    getUserId() {
+        console.log('User ID:', this.user.id);
+        return this.user.id; // Убедитесь, что здесь возвращается строка
     }
 
     async login(email: string, password: string) {
@@ -33,7 +38,7 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
-        } catch (e: any){
+        } catch (e: any) {
             console.log(e.response?.data?.message);
         }
     }
@@ -45,18 +50,18 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
-        } catch (e: any){
+        } catch (e: any) {
             console.log(e.response?.data?.message);
         }
     }
 
     async logout() {
         try {
-            const response = await AuthService.logout();
+            await AuthService.logout();
             localStorage.removeItem('token');
             this.setAuth(false);
             this.setUser({} as IUser);
-        } catch (e: any){
+        } catch (e: any) {
             console.log(e.response?.data?.message);
         }
     }
@@ -64,14 +69,14 @@ export default class Store {
     async checkAuth() {
         this.setLoading(true);
         try {
-            const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {withCredentials: true})
+            const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true });
             console.log(response);
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
-        } catch (e: any){
+        } catch (e: any) {
             console.log(e.response?.data?.message);
-        } finally{
+        } finally {
             this.setLoading(false);
         }
     }

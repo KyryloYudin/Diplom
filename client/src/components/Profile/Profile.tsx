@@ -1,11 +1,38 @@
-
 import Header from '../Header/Header';
 import GridContainer from '../GridContainer';
 import { ReactComponent as ArrowBack } from '../../assets/images/arrowback.svg';
 import { Link } from 'react-router-dom';
-
+import { useContext, useEffect, useState } from 'react';
+import { Context } from '../..';
+import { IProfile } from '../../models/IProfile';
+import ProfileService from '../../services/ProfileService';
+import { observer } from 'mobx-react-lite';
 
 const Profile = () => {
+  const { store } = useContext(Context);
+  const [profiles, setProfiles] = useState<IProfile[]>([]);
+
+  useEffect(() => {
+      const fetchData = async () => {
+          try {
+              if (localStorage.getItem('token')) {
+                  await store.checkAuth();
+              }
+              const userId = store.getUserId();
+              if (userId) {
+                  const response = await ProfileService.fetchProfiles(userId);
+                  setProfiles(response.data);
+              } else {
+                  console.error("User ID is not available");
+              }
+          } catch (error) {
+              console.error('Error during authentication check:', error);
+          }
+      }
+
+      fetchData();
+  }, [store]);
+
   return (
     <div>
       <Header />
@@ -20,7 +47,8 @@ const Profile = () => {
       </div>
       <div className='content'>
         <div className='avatar'>
-        <img className='ava' alt='avatar' src='https://images.unsplash.com/photo-1468253327312-8e5850c46752?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'></img>          <div className='changeAva'>Змінити фото</div>
+          <img className='ava' alt='avatar' src='https://images.unsplash.com/photo-1468253327312-8e5850c46752?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'></img>
+          <div className='changeAva'>Змінити фото</div>
         </div>
         <GridContainer>
           <div>
@@ -38,23 +66,66 @@ const Profile = () => {
           </div>
 
           <div>
-          <div className="grid-item">Юдін К.В.</div>
-          <div className="grid-item">4</div>
-          <div className="grid-item">ІКМ-220Б</div>
-          <div className="grid-item">Навчально-науковий інститут комп'ютерного моделювання, прикладної фізики та математики</div>
-          <div className="grid-item">Математичне моделювання та інтелектуальні обчислення в інженерії</div>
-          <div className="grid-item">Моделювання процесів, обробка та аналіз даних</div>
-          <div className="grid-item"> </div>
-          <div className="grid-item">Комп`ютерні науки. Моделювання, проектування та комп'ютерна графіка</div>
-          <div className="grid-item">Бакалавр</div>
-          <div className="grid-item">Денна</div>
-          <div className="grid-item">Бюджет</div>
+            <div className="grid-item">{profiles.map(profile => (
+                    <div key={profile.id}>
+                        {profile.userName}
+                    </div>
+                ))}</div>
+            <div className="grid-item">{profiles.map(profile => (
+                    <div key={profile.id}>
+                        {profile.course}
+                    </div>
+                ))}</div>
+            <div className="grid-item">{profiles.map(profile => (
+                    <div key={profile.id}>
+                        {profile.group}
+                    </div>
+                ))}</div>
+            <div className="grid-item">{profiles.map(profile => (
+                    <div key={profile.id}>
+                        {profile.faculty}
+                    </div>
+                ))}</div>
+            <div className="grid-item">{profiles.map(profile => (
+                    <div key={profile.id}>
+                        {profile.chair}
+                    </div>
+                ))}</div>
+            <div className="grid-item">{profiles.map(profile => (
+                    <div key={profile.id}>
+                        {profile.specialBlock}
+                    </div>
+                ))}</div>
+            <div className="grid-item">{profiles.map(profile => (
+                    <div key={profile.id}>
+                        {profile.special}
+                    </div>
+                ))}</div>
+            <div className="grid-item">{profiles.map(profile => (
+                    <div key={profile.id}>
+                        {profile.educationProgramm}
+                    </div>
+                ))}</div>
+            <div className="grid-item">{profiles.map(profile => (
+                    <div key={profile.id}>
+                        {profile.studyLevel}
+                    </div>
+                ))}</div>
+            <div className="grid-item">{profiles.map(profile => (
+                    <div key={profile.id}>
+                        {profile.studyForm}
+                    </div>
+                ))}</div>
+            <div className="grid-item">{profiles.map(profile => (
+                    <div key={profile.id}>
+                        {profile.cost}
+                    </div>
+                ))}</div>
           </div>
-          </GridContainer>
-          
-          </div>
+        </GridContainer>
+      </div>
     </div>
   );
-};
+}
 
-export default Profile;
+export default observer(Profile);

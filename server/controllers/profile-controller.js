@@ -4,13 +4,11 @@ const Profile = require('../models/profile-model');
 class ProfileController {
     async getProfile(req, res) {
         try {
-            const user = await User.findById(req.params.id).populate('profile');
-            if (!user) {
-                return res.status(404).json({ message: 'User not found' });
-            }
-            res.json(user.profile);
-        } catch (error) {
-            res.status(500).json({ message: 'Server error', error });
+            const userId = req.params.userId;
+            const profiles = await Profile.find({ userId: userId }); // Или другой запрос для получения профиля пользователя
+            res.json(profiles);
+        } catch (e) {
+            res.status(500).send(e.message);
         }
     }
 

@@ -11,7 +11,7 @@ const ProfileSchema = new Schema({
     chair: { type: String},
     specialBlock: { type: String},
     special: { type: String},
-    educatianProgramm: { type: String},
+    educationProgramm: { type: String},
     studyLevel: { type: String},
     studyForm: { type: String},
     cost: { type: String}
