@@ -5,7 +5,7 @@ class ProfileController {
     async getProfile(req, res) {
         try {
             const userId = req.params.userId;
-            const profiles = await Profile.find({ userId: userId }); // Или другой запрос для получения профиля пользователя
+            const profiles = await Profile.findOne({ userId: userId }); // Или другой запрос для получения профиля пользователя
             res.json(profiles);
         } catch (e) {
             res.status(500).send(e.message);

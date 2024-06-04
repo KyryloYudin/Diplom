@@ -1,5 +1,4 @@
 const {Schema, model} = require ('mongoose');
-const ProfileSchema = require ('./profile-model')
 
 const UserSchema= new Schema({
     email: {type: String, unique: true, required: true},
