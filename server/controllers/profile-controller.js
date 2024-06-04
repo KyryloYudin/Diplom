@@ -4,9 +4,12 @@ const Profile = require('../models/profile-model');
 class ProfileController {
     async getProfile(req, res) {
         try {
-            const userId = req.params.userId;
-            const profiles = await Profile.findOne({ userId: userId }); // Или другой запрос для получения профиля пользователя
-            res.json(profiles);
+            const userId = req.user.id;
+            const profile = await Profile.findOne({ user: userId });
+            if (!profile) {
+                return res.status(404).json({ message: 'Profile not found' });
+            }
+            res.json(profile);
         } catch (e) {
             res.status(500).send(e.message);
         }

@@ -21,8 +21,13 @@ const Profile = () => {
         const userId = store.getUserId();
         if (userId) {
           const response = await ProfileService.fetchProfile(userId);
-          setProfile(response.data);
           console.log(response.data);
+          if (response.data.user === userId) {
+            setProfile(response.data);
+            console.log(response.data);
+          } else {
+            console.error('Profile does not belong to the user');
+          }
         } else {
           console.error('User ID is not available');
         }

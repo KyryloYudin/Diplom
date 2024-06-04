@@ -1,4 +1,5 @@
 export interface IProfile {
+    find(arg0: (profile: IProfile) => boolean): unknown;
     id: string;
     user: string;
     email: string;
