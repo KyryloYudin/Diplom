@@ -18,7 +18,7 @@ import Navogator from './components/Navigator/Navigator';
 
 const App: FC = () => {
   const { store } = useContext(Context);
-  const [users, setUsers] = useState<IUser[]>([]);
+  // const [users, setUsers] = useState<IUser[]>([]);
   const [loading, setLoading] = useState(true); // Состояние загрузки
 
   useEffect(() => {
@@ -37,14 +37,14 @@ const App: FC = () => {
     fetchData();
   }, [store]);
 
-  async function getUsers() {
-    try {
-      const response = await UserService.fetchUsers();
-      setUsers(response.data);
-    } catch (error) {
-      console.error('Error fetching users:', error);
-    }
-  }
+  // async function getUsers() {
+  //   try {
+  //     const response = await UserService.fetchUsers();
+  //     setUsers(response.data);
+  //   } catch (error) {
+  //     console.error('Error fetching users:', error);
+  //   }
+  // }
 
   if (loading) {
     return <div>Loading...</div>; // Показываем индикатор загрузки
@@ -65,13 +65,13 @@ const App: FC = () => {
       {/* <h1>{store.isAuth ? `User auth ${store.user.email}` : 'Auth pls!'}</h1>
       <h2>{store.user.isActivated ? 'Acc activation in mail' : 'Activate acc!'}</h2> */}
       <button onClick={() => store.logout()}>Exit</button>
-      <button onClick={getUsers}>Get all users</button>
+      {/* <button onClick={getUsers}>Get all users</button> */}
       {/* <div>
         <button onClick={getUsers}>Get all users</button>
       </div> */}
-      {users.map(user => (
+      {/* {users.map(user => (
         <div key={user.email}>{user.email}</div>
-      ))}
+      ))} */}
     </div>
   );
 };

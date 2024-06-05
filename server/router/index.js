@@ -1,9 +1,12 @@
 const Router = require('express').Router;
 const userController = require('../controllers/user-controller');
 const profileController = require('../controllers/profile-controller');
+const groupController = require('../controllers/group-controller');
+const gradeController = require('../controllers/grade-controller');
 const router = new Router();
 const { body } = require('express-validator');
 const authMiddleware = require('../middlewares/auth-middleware');
+
 
 router.post('/registration',
     body('email').isEmail(),
@@ -52,5 +55,15 @@ router.post('/profile', authMiddleware,
     body('cost').optional().isString(),
     profileController.createProfile
 );
+
+router.post('/groups', authMiddleware, groupController.createGroup);
+router.get('/groups/:groupId', authMiddleware, groupController.getGroup);
+
+router.post('/grades', authMiddleware, gradeController.addGrade);
+router.get('/grades/profile/:profileId', authMiddleware, gradeController.getGrades);
+router.get('/grades/:gradeId', authMiddleware, gradeController.getGrade);
+router.put('/grades/:gradeId', authMiddleware, gradeController.updateGrade);
+router.delete('/grades/:gradeId', authMiddleware, gradeController.deleteGrade);
+
 
 module.exports = router;

@@ -36,7 +36,7 @@ const LoginForm: FC = () => {
         />
         </div>
         <button className='send' onClick={() => store.login(email, password)}>Enter</button>
-        <button onClick={() => store.registration(email, password)}>Registration</button>
+        {/* <button onClick={() => store.registration(email, password)}>Registration</button> */}
         </div>
         <div className="support">
         <div>
