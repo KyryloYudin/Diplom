@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Header from '../Header/Header';
 import { ReactComponent as ArrowBack } from '../../assets/images/arrowback.svg';
 import { Link } from 'react-router-dom';
 import '../../styles/Borg.css';
 import BorgBlock from './BorgBlock';
+import { Context } from '../..';
+import GradeService from '../../services/GradeService';
 
 
 const Borg: React.FC = () => {
+  const { store } = useContext(Context);
+
+  useEffect(() => {
+    const fetchGrades = async () => {
+      const profileId = store.getProfileId();
+      if (profileId) {
+        try {
+          const response = await GradeService.fetchGrades(profileId);
+          store.setGrades(response.data);
+        } catch (error) {
+          console.error('Failed to fetch grades:', error);
+        }
+      }
+    };
+
+    fetchGrades();
+  }, [store]);
+
+  const debts = store.grades.filter(grade => !grade.grade);
     return (
       <div>
       <Header/>
@@ -31,20 +52,20 @@ const Borg: React.FC = () => {
             <div id='contact'>Контакт</div>
             <div id='ez'>Е\З</div>
           </div>
-          <BorgBlock
-            number= {'1'}
-            discipline= {'Аналіз даних в Python та R'}
-            teacher= {'Розова Л.В. [ММІ]'}
-            contact= {''}
-            ez= {'Е Р'}
-          />
-          <BorgBlock
-            number= {'2'}
-            discipline= {'Аналіз даних в Python та R'}
-            teacher= {'Розова Л.В. [ММІ]'}
-            contact= {''}
-            ez= {'Е Р'}
-          />
+          {debts.length > 0 ? (
+            debts.map((debt, index) => (
+              <BorgBlock
+                key={debt._id}
+                number={index + 1}
+                nameLesson={debt.nameLesson}
+                nameTeacher={debt.nameTeacher}
+                contact={debt.contact}
+                ez={debt.ez}
+              />
+            ))
+          ) : (
+            <div>No debts found.</div>
+          )}
           </div>
         </div>
 
