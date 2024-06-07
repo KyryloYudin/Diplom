@@ -4,11 +4,13 @@ import AuthService from "../services/AuthService";
 import axios from "axios";
 import { AuthResponse } from "../models/response/AuthResponse";
 import { API_URL } from "../http";
+import { IGrade } from "../models/IGrade";
 
 export default class Store {
     user = {} as IUser;
     isAuth = false;
     isLoading = false;
+    grades: IGrade[] = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -26,15 +28,24 @@ export default class Store {
         this.isLoading = bool;
     }
 
+    setGrades(grades: IGrade[]) {
+        this.grades = grades;
+    }
+
     getUserId() {
         console.log('User ID:', this.user.id);
-        return this.user.id; // Убедитесь, что здесь возвращается строка
+        return this.user.id;
+    }
+
+    getProfileId() {
+        console.log('Profile ID:', this.user.profile);
+        return this.user.profile;
     }
 
     async login(email: string, password: string) {
         try {
             const response = await AuthService.login(email, password);
-            console.log(response)
+            console.log(response);
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
@@ -46,7 +57,7 @@ export default class Store {
     async registration(email: string, password: string) {
         try {
             const response = await AuthService.registration(email, password);
-            console.log(response)
+            console.log(response);
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);

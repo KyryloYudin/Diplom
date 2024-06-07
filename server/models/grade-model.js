@@ -6,11 +6,44 @@ const gradeSchema= new Schema({
     semestr: {type: String},
     nameLesson: { type: String},
     nameTeacher: {type: String},
-    Contact: {type: String},
+    contact: {type: String},
     ez: {type: String},
-    grade: {type: String},
+    grade: {type: Number},
     nation: {type: String},
     ects: {type: String},
+});
+
+gradeSchema.pre('save', function(next) {
+    if (this.grade !== undefined) {
+        // Расчет значения nation
+        if (this.grade >= 90) {
+            this.ects = 'A';
+        } else if (this.grade >= 80) {
+            this.ects = 'B';
+        } else if (this.grade >= 70) {
+            this.ects = 'C';
+        } else if (this.grade >= 60) {
+            this.ects = 'D';
+        } else if (this.grade >= 50) {
+            this.ects = 'E';
+        } else {
+            this.ects = 'F';
+        }
+
+        // Расчет значения ects
+        if (this.grade >= 90) {
+            this.nation = '5';
+        } else if (this.grade >= 80) {
+            this.nation = '4';
+        } else if (this.grade >= 70) {
+            this.nation = '3';
+        } else if (this.grade >= 60) {
+            this.nation = '2';
+        } else {
+            this.nation = '1';
+        }
+    }
+    next();
 });
 
 module.exports = model('Grade', gradeSchema);

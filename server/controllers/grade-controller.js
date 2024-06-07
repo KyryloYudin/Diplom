@@ -5,15 +5,13 @@ class GradeController {
     // Создание новой оценки
     async addGrade(req, res) {
         try {
-            const { profileId, semestr, nameLesson, nameTeacher, contact, ez, grade, nation, ects } = req.body;
+            const { profileId, semestr, nameLesson, nameTeacher, contact, ez, grade } = req.body;
 
-            // Получаем профиль по profileId
             const profile = await Profile.findById(profileId);
             if (!profile) {
                 return res.status(404).json({ message: 'Profile not found' });
             }
 
-            // Создаем запись об оценке
             const newGrade = await Grade.create({
                 profileId: profile._id,
                 userName: profile.userName,
@@ -22,9 +20,7 @@ class GradeController {
                 nameTeacher,
                 contact,
                 ez,
-                grade,
-                nation,
-                ects
+                grade
             });
 
             res.status(201).json(newGrade);
@@ -38,7 +34,6 @@ class GradeController {
         try {
             const { profileId } = req.params;
 
-            // Получаем все оценки для профиля
             const grades = await Grade.find({ profileId });
             if (grades.length === 0) {
                 return res.status(404).json({ message: 'No grades found for this profile' });
@@ -55,7 +50,6 @@ class GradeController {
         try {
             const { gradeId } = req.params;
 
-            // Получаем оценку по ID
             const grade = await Grade.findById(gradeId);
             if (!grade) {
                 return res.status(404).json({ message: 'Grade not found' });
@@ -71,20 +65,23 @@ class GradeController {
     async updateGrade(req, res) {
         try {
             const { gradeId } = req.params;
-            const { semestr, nameLesson, nameTeacher, contact, ez, grade, nation, ects } = req.body;
-
-            // Обновляем оценку по ID
-            const updatedGrade = await Grade.findByIdAndUpdate(
-                gradeId,
-                { semestr, nameLesson, nameTeacher, contact, ez, grade, nation, ects },
-                { new: true, runValidators: true }
-            );
-
-            if (!updatedGrade) {
+            const { semestr, nameLesson, nameTeacher, contact, ez, grade } = req.body;
+    
+            const gradeDoc = await Grade.findById(gradeId);
+            if (!gradeDoc) {
                 return res.status(404).json({ message: 'Grade not found' });
             }
-
-            res.json(updatedGrade);
+    
+            gradeDoc.semestr = semestr;
+            gradeDoc.nameLesson = nameLesson;
+            gradeDoc.nameTeacher = nameTeacher;
+            gradeDoc.contact = contact;
+            gradeDoc.ez = ez;
+            gradeDoc.grade = grade;
+    
+            await gradeDoc.save();
+    
+            res.json(gradeDoc);
         } catch (error) {
             res.status(500).json({ message: 'Server error', error });
         }
@@ -95,7 +92,6 @@ class GradeController {
         try {
             const { gradeId } = req.params;
 
-            // Удаляем оценку по ID
             const deletedGrade = await Grade.findByIdAndDelete(gradeId);
 
             if (!deletedGrade) {

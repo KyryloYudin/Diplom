@@ -12,8 +12,8 @@
     justify-content: flex-start;
 }
 #contact{
-    max-width: 100px;
-    min-width: 50px;
+    max-width: 150px;
+    min-width: 100px;
     flex: 1;
     display: flex;
     justify-content: center;

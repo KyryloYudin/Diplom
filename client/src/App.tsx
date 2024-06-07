@@ -2,8 +2,6 @@ import React, { FC, useContext, useEffect, useState } from 'react';
 import LoginForm from './components/LoginForm';
 import { Context } from '.';
 import { observer } from 'mobx-react-lite';
-import { IUser } from './models/IUser';
-import UserService from './services/UserService';
 import Sidebar from './components/Sidebar/Sidebar';
 import './components/Sidebar/Sidebar.css';
 import './styles/LoginForm.css';

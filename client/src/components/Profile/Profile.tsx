@@ -21,7 +21,6 @@ const Profile = () => {
         const userId = store.getUserId();
         if (userId) {
           const response = await ProfileService.fetchProfile(userId);
-          console.log(response.data);
           if (response.data.user === userId) {
             setProfile(response.data);
             console.log(response.data);
