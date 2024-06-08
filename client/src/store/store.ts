@@ -33,12 +33,10 @@ export default class Store {
     }
 
     getUserId() {
-        console.log('User ID:', this.user.id);
         return this.user.id;
     }
 
     getProfileId() {
-        console.log('Profile ID:', this.user.profile);
         return this.user.profile;
     }
 
@@ -81,7 +79,6 @@ export default class Store {
         this.setLoading(true);
         try {
             const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, { withCredentials: true });
-            console.log(response);
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
