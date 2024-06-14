@@ -2,7 +2,7 @@ import React from 'react';
 
 
 interface RatingProps {
-  number: string;
+  number: number;
   userName: string;
   Group: string;
   Rate: string;
@@ -10,7 +10,7 @@ interface RatingProps {
 }
 
 const RatingMember: React.FC<RatingProps> = (props) => {
-  const backgroundColor = parseInt(props.number) % 2 === 0 ? 'rgba(159, 28, 32, 1)' : 'rgb(161, 40, 44);'; // Определяем цвет фона
+  const backgroundColor = props.number % 2 === 0 ? 'rgba(159, 28, 32, 1)' : 'rgb(161, 40, 44)';
 
   return (
     <div className='RatingMember' style={{ backgroundColor }}>

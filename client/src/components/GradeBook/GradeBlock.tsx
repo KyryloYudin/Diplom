@@ -8,7 +8,7 @@ interface GradeProps {
   nameTeacher: string;
   contact: string;
   ez: string;
-  grade: string;
+  grade: number;
   nation: string;
   ects: string;
 

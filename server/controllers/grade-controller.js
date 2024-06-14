@@ -5,7 +5,7 @@ class GradeController {
     // Создание новой оценки
     async addGrade(req, res) {
         try {
-            const { profileId, semestr, nameLesson, nameTeacher, contact, ez, grade } = req.body;
+            const { profileId, semestr, nameLesson, nameTeacher, contact, ez, grade, credit } = req.body;
 
             const profile = await Profile.findById(profileId);
             if (!profile) {
@@ -20,7 +20,8 @@ class GradeController {
                 nameTeacher,
                 contact,
                 ez,
-                grade
+                grade,
+                credit
             });
 
             res.status(201).json(newGrade);
@@ -65,7 +66,7 @@ class GradeController {
     async updateGrade(req, res) {
         try {
             const { gradeId } = req.params;
-            const { semestr, nameLesson, nameTeacher, contact, ez, grade } = req.body;
+            const { semestr, nameLesson, nameTeacher, contact, ez, grade, credit } = req.body;
     
             const gradeDoc = await Grade.findById(gradeId);
             if (!gradeDoc) {
@@ -78,6 +79,7 @@ class GradeController {
             gradeDoc.contact = contact;
             gradeDoc.ez = ez;
             gradeDoc.grade = grade;
+            gradeDoc.credit = credit;
     
             await gradeDoc.save();
     

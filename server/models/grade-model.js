@@ -11,6 +11,7 @@ const gradeSchema= new Schema({
     grade: {type: Number},
     nation: {type: String},
     ects: {type: String},
+    credit: {type: Number}
 });
 
 gradeSchema.pre('save', function(next) {
@@ -33,11 +34,11 @@ gradeSchema.pre('save', function(next) {
         // Расчет значения ects
         if (this.grade >= 90) {
             this.nation = '5';
-        } else if (this.grade >= 80) {
+        } else if (this.grade >= 75) {
             this.nation = '4';
-        } else if (this.grade >= 70) {
-            this.nation = '3';
         } else if (this.grade >= 60) {
+            this.nation = '3';
+        } else if (this.grade >= 50) {
             this.nation = '2';
         } else {
             this.nation = '1';

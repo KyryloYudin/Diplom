@@ -5,12 +5,21 @@ import axios from "axios";
 import { AuthResponse } from "../models/response/AuthResponse";
 import { API_URL } from "../http";
 import { IGrade } from "../models/IGrade";
+import { IRating } from "../models/IRating";
+import RatingService from "../services/RatingService";
+import ProfileService from "../services/ProfileService";
+import { IProfile } from "../models/IProfile";
+
 
 export default class Store {
     user = {} as IUser;
+    profile = {} as IProfile;
     isAuth = false;
     isLoading = false;
     grades: IGrade[] = [];
+    ratings: IRating[] = [];
+    error: string | null = null;
+    
 
     constructor() {
         makeAutoObservable(this);
@@ -38,6 +47,17 @@ export default class Store {
 
     getProfileId() {
         return this.user.profile;
+    }
+    setProfile(profile: IProfile) {
+        this.profile = profile;
+    }
+
+    setRatings(ratings: IRating[]) {
+        this.ratings = ratings;
+    }
+
+    setError(error: string | null) {
+        this.error = error;
     }
 
     async login(email: string, password: string) {
@@ -88,4 +108,34 @@ export default class Store {
             this.setLoading(false);
         }
     }
+
+    async fetchRatings(semester: number) {
+        if (!this.profile) {
+            return;
+        }
+        this.setLoading(true);
+        this.setError(null);
+        try {
+            const response = await RatingService.fetchRatings(semester, this.profile.specialBlock);
+            this.setRatings(response.data);
+        } catch (error: any) {
+            this.setError(error.message);
+        } finally {
+            this.setLoading(false);
+        }
+    }
+
+    async fetchUserProfile(userId: string) {
+        this.setLoading(true);
+        this.setError(null);
+        try {
+            const response = await ProfileService.fetchProfile(userId);
+            this.setProfile(response.data);
+        } catch (error: any) {
+            this.setError(error.message);
+        } finally {
+            this.setLoading(false);
+        }
+    }
+
 }
